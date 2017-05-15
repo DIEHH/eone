@@ -1,0 +1,32 @@
+/* latin */
+@font-face {
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Volkhov Regular'), local('Volkhov-Regular'), url(https://fonts.gstatic.com/s/volkhov/v8/7YA5GpHg48S818VCt31NAA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Volkhov';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Volkhov Bold'), local('Volkhov-Bold'), url(https://fonts.gstatic.com/s/volkhov/v8/bfl1JD3mxnmq4NrdCJOHxfk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Volkhov';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Volkhov Italic'), local('Volkhov-Italic'), url(https://fonts.gstatic.com/s/volkhov/v8/Y_Jmwi-iHxNj27PG4ILsdVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Volkhov';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Volkhov Bold Italic'), local('Volkhov-BoldItalic'), url(https://fonts.gstatic.com/s/volkhov/v8/W6oG0QDDjCgj0gmsHE520Ogdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
