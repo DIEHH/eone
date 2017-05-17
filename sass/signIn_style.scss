@@ -1,0 +1,43 @@
+html,body{
+	height:100%;
+}
+#signIn{
+	width:100%;
+	height:50%;
+	padding-top:180px;
+}
+#signIn form{
+	width:470px;
+	height:300px;
+	margin:0 auto;
+	text-align:center;
+	border:1px solid #729bb4;
+	padding-top:30px;
+	border-radius:50px;
+}
+#signIn form input{
+	border:1px solid #729bb4;
+	display:block;
+	width:260px;
+	height:30px;
+	text-indent:20px;
+	margin:20px auto;
+}
+#signIn form label {
+	display:block;
+	font-size:16px;
+}
+#signIn form label input{
+	display:inline-block;
+	width:16px;
+	height:16px;
+}
+#signIn form button{
+	width:160px;
+	height:30px;
+	background:#94bdd6;
+	border:0;
+	font-size:18px;
+	color:#fff;
+	border-radius:5px;
+}

@@ -1,0 +1,17 @@
+#all{
+	padding-top:150px;
+	text-align:center;
+}
+#all .products{
+	width:100%;
+	border-bottom:1px solid #ccc;
+}
+#all .products ul{
+	width:1020px;
+	margin:0 auto;
+	overflow:hidden;
+}
+#all .products ul li{
+	width:30%;
+	float:left;
+}

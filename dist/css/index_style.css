@@ -1,0 +1,131 @@
+#banner {
+  position: relative;
+  height: 842px; }
+
+#banner img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: -1; }
+
+#banner div {
+  height: 100%;
+  width: 70px;
+  font-size: 40px;
+  line-height: 842px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer; }
+
+#banner div:nth-child(1) {
+  float: left; }
+
+#banner div:nth-child(2) {
+  float: right; }
+
+#container {
+  width: 1000px;
+  margin: 0 auto; }
+
+#container .introduce h2 {
+  line-height: 160px;
+  text-align: center;
+  color: #555; }
+
+#container .introduce dl {
+  overflow: hidden;
+  width: 1000px;
+  padding-bottom: 50px; }
+
+#container .introduce dl:nth-child(3) {
+  border-bottom: 1px solid #eee; }
+
+#container .introduce dl h3 {
+  line-height: 50px;
+  color: #888; }
+
+#container .introduce dl img {
+  width: 400px; }
+
+#container .introduce dl dt {
+  float: left;
+  width: 450px; }
+
+#container .introduce dl dd {
+  float: right;
+  width: 400px; }
+
+#container .introduce dl p {
+  color: #999;
+  line-height: 25px; }
+
+#container .product h3, #container .pop h3 {
+  text-align: center;
+  line-height: 80px; }
+
+#container .product ul {
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto; }
+
+#container .product ul li {
+  float: left;
+  width: 30%;
+  margin: 0 15px;
+  text-align: center;
+  font-size: 14px; }
+
+#container .product ul li a {
+  color: #000; }
+
+#container .product ul li img {
+  width: 100%; }
+
+#container .pop {
+  width: 1020px;
+  margin: 0 auto;
+  text-align: center; }
+
+#container .pop .popProduct ul {
+  overflow: hidden;
+  width: 100%; }
+
+#container .pop .popProduct ul li {
+  width: 25%;
+  float: left;
+  margin-bottom: 30px; }
+
+#container .pop .popProduct ul li:nth-child(5) {
+  clear: both; }
+
+#container .pop .popProduct ul li p {
+  color: #ccc;
+  font-size: 12px;
+  line-height: 40px; }
+
+#container .pop .popProduct ul li p:nth-child(4) {
+  font-size: 18px; }
+
+#container .pop .popProduct ul li b {
+  width: 200px;
+  display: block;
+  margin: 0 auto; }
+
+#container .pop .popProduct ul li b a {
+  color: #000;
+  font-size: 16px;
+  line-height: 40px; }
+
+#container .pop .popProduct ul li img {
+  width: 100%; }
+
+#container .pop .popProduct button {
+  width: 160px;
+  height: 40px;
+  font-size: 18px;
+  color: #ccc;
+  background: #eee;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-bottom: 50px; }
