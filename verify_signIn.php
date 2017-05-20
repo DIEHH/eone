@@ -1,6 +1,5 @@
 <?php
 	$username = $_POST["username"];
-	$password = $_POST["password"];
 	/* 连接数据库 */
 	$conn = mysql_connect("localhost:3306","root","");
 	if (!$conn) {
@@ -15,7 +14,7 @@
 	mysql_query("set names 'utf8'");
 
 	/* 数据查询 */
-	$sql = "SELECT * FROM user WHERE username ='$username' and password='$password'";
+	$sql = "SELECT * FROM user WHERE username ='$username'";
 	$result = mysql_query($sql, $conn); // 执行SQL语句，获取查询结果集
 	$arr = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {

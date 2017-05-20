@@ -180,9 +180,22 @@
 				}
 				else
 					$(".password1").next().text("  ");
+				if(_password1 !== _password2){
+					$(".password2").next().text("两次输入的密码不一致").css("color","red");
+					password = false;
+				}
+				else{
+					$(".password2").next().text("密码一致").css("color","#729bb4");
+					password = true;
+				}
 			});
 			$(".password2").blur(function(){
 				_password2 = $(this).val();
+				var len = Array.from(_password2).length;
+				if(len < 1){
+					$(".password2").next().text("确认密码不能为空").css("color","red");
+					return;
+				}
 				if(_password1 !== _password2){
 					$(".password2").next().text("两次输入的密码不一致").css("color","red");
 					password = false;

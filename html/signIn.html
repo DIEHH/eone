@@ -30,9 +30,9 @@
 	</div>
 	<div id="signIn">
 		<form action="">
-			<p>您的用户名：</p>
+			<p>您的用户名：<i class="nameError"></i></p>
 			<input type="text" placeholder="user name" class="name">
-			<p>您的密码：</p>
+			<p>您的密码：<i class="passwordError"></i></p>
 			<input type="password" placeholder="user password" class="password">
 			<a class="btn" href="javascript:void(0)">Sign In</a>
 		</form>
@@ -88,18 +88,45 @@
 			$(".btn").mouseenter(function(){$(this).css("background","#527992")}).mouseleave(function(){$(this).css("background","#729bb4")}).click(function(){
 				var _username = $(".name").val(),
 					_password = $(".password").val();
-				$.ajax({
-					url : "../verify_signIn.php",
-					type : "post",
-					dataType : "json",
-					data : {
-						username : _username,
-						password : _password
-					},
-					success : function(data){
-						console.log(data);
-					}
-				})
+				var userLen = Array.from(_username).length,
+					passLen = Array.from(_password).length;
+				if(userLen === 0){
+					$(".nameError").text("请输入用户名").css("color","red");
+					return;
+				}else if(passLen === 0){
+					$(".nameError").text(" ");
+					$(".passwordError").text("请输入密码").css("color","red");
+					return;
+				}else{
+					$(".nameError").text(" ");
+					$(".passwordError").text(" ");
+					$.ajax({
+						url : "../verify_signIn.php",
+						type : "post",
+						dataType : "json",
+						data : {
+							username : _username
+						},
+						success : function(data){
+							if(data.length === 0){
+								$(".nameError").text("用户名不存在").css("color","red");
+							}else{
+								$(".nameError").text(" ");
+								if(data[0].password !== _password){
+									$(".passwordError").text("密码错误").css("color","red");
+								}else{
+									var time = 5;
+									setInterval(function(){
+										time--;
+										$(".btn").text("正在登陆。。" + time).css("color","#fff");
+										if(time <= 0)
+											location = "../index.html"
+									},1000)
+								}
+							}
+						}
+					})
+				}
 			});
 		})
 	</script>
