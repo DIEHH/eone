@@ -12,9 +12,9 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- 数据库: `eone`
 --
-DROP DATABASE IF EXISTS `eone1`;
-CREATE DATABASE `eone1` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `eone1`;
+DROP DATABASE IF EXISTS `eone`;
+CREATE DATABASE `eone` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `eone`;
 
 -- --------------------------------------------------------
 
