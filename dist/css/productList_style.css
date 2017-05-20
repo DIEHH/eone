@@ -1,0 +1,83 @@
+#show {
+  width: 1020px;
+  margin: 0 auto;
+  height: 550px;
+  padding-top: 150px; }
+
+#show .observe {
+  overflow: hidden;
+  padding: 0 85px; }
+
+#show .observe #box, #bigBox {
+  float: left;
+  width: 400px;
+  height: 400px; }
+
+#show .observe #box {
+  margin-right: 20px;
+  position: relative; }
+
+#show .observe #box .glass {
+  position: absolute;
+  background: #eee;
+  opacity: 0.5;
+  width: 40px;
+  height: 40px; }
+
+#show .observe #bigBox {
+  position: relative;
+  overflow: hidden;
+  display: none; }
+
+#show .observe #bigBox img {
+  position: absolute; }
+
+#show .observe .small_img {
+  clear: both;
+  padding-left: 20px; }
+
+#show .observe .small_img img {
+  margin-right: 20px; }
+
+#show .buy {
+  width: 400px;
+  float: right;
+  margin-top: -400px;
+  margin-right: 112px; }
+
+#show .buy p {
+  margin-bottom: 20px; }
+
+#show .buy p:nth-child(1) {
+  color: #888;
+  font-size: 14px;
+  margin-top: -20px; }
+
+#show .buy h2 {
+  margin-bottom: 20px; }
+
+#show .buy p:nth-child(3) {
+  font-size: 20px;
+  color: #666; }
+
+#show .buy p input {
+  width: 50px;
+  height: 40px;
+  background: #eee;
+  margin-left: 10px;
+  border: 1px solid #729bb4;
+  text-align: center; }
+
+#show .buy a {
+  display: block;
+  width: 120px;
+  height: 40px;
+  background: #729bb4;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px; }
+
+#show .buy p:nth-child(6) {
+  line-height: 25px;
+  color: #888; }

@@ -3,17 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Eone Timepieces 丨Bradley Collections for Men & Women「SEE & TOUCH」 | Eone Timepieces</title>
-	<link rel="stylesheet" type="text/css" href="/dist/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/dist/css/productList_style.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/product_style.css">
 </head>
 <body>
 	<div id="nav">
 		<div class="bg"></div>
 		<header>
-			<h1><a href=""><img src="/imgs/logo.png" alt=""></a></h1>
+			<h1><a href="../index.html"><img src="../imgs/logo.png" alt=""></a></h1>
 			<ul>
-				<li><a href="">搜索</a></li>
-				<li><a href="">购物车</a></li>
+				<li><a href="signIn.html">登录</a></li>
+				<li><a href="signUp.html">注册</a></li>
+				<li><a href="javascript:void(0)" class="sou">搜索</a></li>
+				<li><a href="cart.html">购物车</a></li>
 				<li><a href="">导航</a></li>
 			</ul>
 			<div class="search">
@@ -25,11 +27,26 @@
 		<div class="hide">
 		</div>
 	</div>
-
-
-
-
-
+	<div id="all">
+		<h1>ALL</h1>
+		<p class="introduce">The Bradley is a tactile timepiece designed for men and women. The watchface is made of solid titanium and runs on a Swiss quartz movement. The stainless steel mesh band model is easy to snap on and off, and looks great with day wear and evening wear.</p>
+		<div class="products"></div>
+		<div class="btn">
+			<div class="pre">&lt;PREVIOUS</div>
+			<p>page&nbsp;<span class="page"></span>&nbsp;of&nbsp;4</p>
+			<div class="next">NEXT&gt;</div>
+		</div>
+		<script type="text/html" id="product_template">
+			<% for(var i = 0 ; i < products.length ; i++) {var p = products[i];%>
+				<div class="body">
+					<div class="image"><a href="product.html"><img src="<%=p.imge%>"/></a></div>
+					<div><p class="eone">EONE TIMEPIECES</p></div>
+					<div><p class="product_name"><a href=""><%=p.name%></a></p></div>	
+					<div><p><%=p.pirce%></p></div>
+				</div>
+			<% } %>
+		</script>
+	</div>
 	<div id="subscribe">
 		<p>We promise to only send you good things.</p>
 		<form action="">
@@ -37,6 +54,7 @@
 			<button >SUBSCRIBE</button>
 		</form>
 	</div>
+
 	<footer id="footer">
 		<div class="foot">
 			<ul>
@@ -74,13 +92,52 @@
 			<div class="share">
 				<h4>SHARE TO YOUR FRIENDS</h4>
 				<ul>
-					<li><a href="">微信</a></li>
-					<li><a href="">微博</a></li>
-					<li><a href="">支付宝</a></li>
+					<li></li>
+					<li></li>
+					<li></li>
 				</ul>
 			</div>
-		</div>
+		</div><a href=""></a>
 	</footer>
-	
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/reuse_js.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/template-web.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			function load(_page) {
+				$.ajax({
+					url : "../get_products.php",
+					data : {page : _page},
+					dataType : "json",
+					success : function(data){
+						var datas = {
+							products : data
+						}
+						var html = template("product_template", datas);
+						$(".products").html(html);
+					}
+				});
+			}
+			var count = 1;
+			load(count);
+			$(".page").text(count);
+			/* 上一页、下一页 */
+			$(".pre").click(function(){
+				count--
+				if(count<=1)
+					count=1;
+				load(count);
+				$(".page").text(count);
+			});
+			$(".next").click(function(){
+				count++
+				if(count>=4)
+					count=4
+				load(count);
+				$(".page").text(count);
+			});
+		});
+	</script>
 </body>
 </html>

@@ -59,9 +59,8 @@ a{
 	width:400px;
 	height:120px;
 	position:fixed;
-	top:0;
+	top:-120px;
 	right:50px;
-	display:none;
 }
 
 #nav .search form{
@@ -74,10 +73,12 @@ a{
 	height:35px;
 	text-indent:50px;
 	float:left;
+	background:#eee;
 }
 #subscribe{
 	width:1020px;
-	height:200px;margin:0 auto;
+	height:200px;
+	margin:0 auto;
 	border-top:1px solid #ccc;
 }
 #subscribe p{

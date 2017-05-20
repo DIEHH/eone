@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="/dist/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/dist/css/signIn_style.css">
+	<title>Eone Timepieces 丨Bradley Collections for Men & Women「SEE & TOUCH」 | Eone Timepieces</title>
+	<link rel="stylesheet" type="text/css" href="../dist/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/signIn_style.css">
 </head>
 <body>
 	<div id="nav">
 		<div class="bg"></div>
 		<header>
-			<h1><a href=""><img src="/imgs/logo.png" alt=""></a></h1>
+			<h1><a href="../index.html"><img src="../imgs/logo.png" alt=""></a></h1>
 			<ul>
-				<li><a href="">搜索</a></li>
-				<li><a href="">购物车</a></li>
+				<li><a href="signIn.html">登录</a></li>
+				<li><a href="signUp.html">注册</a></li>
+				<li></li>
+				<li><a href="javascript:void(0)" class="sou">搜索</a></li>
+				<li><a href="cart.html">购物车</a></li>
 				<li><a href="">导航</a></li>
 			</ul>
 			<div class="search">
@@ -27,17 +30,11 @@
 	</div>
 	<div id="signIn">
 		<form action="">
+			<p>您的用户名：</p>
 			<input type="text" placeholder="user name" class="name">
+			<p>您的密码：</p>
 			<input type="password" placeholder="user password" class="password">
-			<label><input type="checkbox">记住我</label>
-			<button class="btn">Sign In</button>
-		</form>
-	</div>
-	<div id="subscribe">
-		<p>We promise to only send you good things.</p>
-		<form action="">
-			<input type="text" placeholder="you@email.com">
-			<button >SUBSCRIBE</button>
+			<a class="btn" href="javascript:void(0)">Sign In</a>
 		</form>
 	</div>
 	<footer id="footer">
@@ -84,7 +81,27 @@
 			</div>
 		</div>
 	</footer>
-	<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="/js/reuse_js.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/reuse_js.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".btn").mouseenter(function(){$(this).css("background","#527992")}).mouseleave(function(){$(this).css("background","#729bb4")}).click(function(){
+				var _username = $(".name").val(),
+					_password = $(".password").val();
+				$.ajax({
+					url : "../verify_signIn.php",
+					type : "post",
+					dataType : "json",
+					data : {
+						username : _username,
+						password : _password
+					},
+					success : function(data){
+						console.log(data);
+					}
+				})
+			});
+		})
+	</script>
 </body>
 </html>

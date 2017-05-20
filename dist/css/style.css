@@ -62,9 +62,8 @@ a {
   width: 400px;
   height: 120px;
   position: fixed;
-  top: 0;
-  right: 50px;
-  display: none; }
+  top: -120px;
+  right: 50px; }
 
 #nav .search form {
   width: 330px;
@@ -75,7 +74,8 @@ a {
   width: 300px;
   height: 35px;
   text-indent: 50px;
-  float: left; }
+  float: left;
+  background: #eee; }
 
 #subscribe {
   width: 1020px;

@@ -1,7 +1,6 @@
 <?php
-	$page = $_GET["page"];
-	if (!$page)
-		$page = 1;
+	$username = $_POST["username"];
+	$password = $_POST["password"];
 	/* 连接数据库 */
 	$conn = mysql_connect("localhost:3306","root","");
 	if (!$conn) {
@@ -16,13 +15,12 @@
 	mysql_query("set names 'utf8'");
 
 	/* 数据查询 */
-	$sql = "SELECT * FROM products LIMIT ". ($page - 1) * 12 . ", 12";
+	$sql = "SELECT * FROM user WHERE username ='$username' and password='$password'";
 	$result = mysql_query($sql, $conn); // 执行SQL语句，获取查询结果集
 	$arr = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 		$arr[] = $row; // 将当前行数据保存到数组中
-	}
-
+	};
 	echo json_encode($arr);
 
 	/* 关闭连接 */

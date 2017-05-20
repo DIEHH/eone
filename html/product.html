@@ -3,16 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Eone Timepieces 丨Bradley Collections for Men & Women「SEE & TOUCH」 | Eone Timepieces</title>
-	<link rel="stylesheet" type="text/css" href="/dist/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/dist/css/product_style.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/productList_style.css">
 </head>
 <body>
 	<div id="nav">
 		<div class="bg"></div>
 		<header>
-			<h1><a href=""><img src="/imgs/logo.png" alt=""></a></h1>
+			<h1><a href="../index.html"><img src="../imgs/logo.png"></a></h1>
 			<ul>
-				<li><a href="">搜索</a></li>
+				<li><a href="">登录</a></li>
+				<li><a href="">注册</a></li>
+				<li><a href="javascript:void(0)" class="sou">搜索</a></li>
 				<li><a href="">购物车</a></li>
 				<li><a href="">导航</a></li>
 			</ul>
@@ -25,9 +27,29 @@
 		<div class="hide">
 		</div>
 	</div>
-	<div id="all">
-		<h1>ALL</h1>
-		<div class="products"></div>
+	<div id="show">
+		<div class="observe">
+			<div id="box">
+				<img class="small" src="../imgs/big_img/1/big_1.jpg">
+				<div class="glass"></div>
+			</div>
+			<div id="bigBox">
+				<img class="big" src="../imgs/big_img/1/big_1.jpg">
+			</div>
+			<div class="small_img">
+				<img src="../imgs/big_img/1/small_1.jpg" alt="">
+				<img src="../imgs/big_img/1/small_2.jpg" alt="">
+				<img src="../imgs/big_img/1/small_3.jpg" alt="">
+			</div>
+		</div>
+		<div class="buy">
+			<p>EONE TIMEPIECES</p>
+			<h2>Bradley Element Black 元素黑鋼系列 - 觸感腕錶</h2>
+			<p>HK$3,980.00 </p>
+			<p><i>Quantity</i><input type="text" value="1"></p>
+			<a href="">BUY NOW</a>
+			<p>Element 元素黑鋼系列手錶推出後，迅間成為Eone的人氣商品；其錶面與以往金屬錶面不同，採用全新3D立體切割面技術，增強了佩戴者用手觸碰時間的感官體驗及「感動」每分鐘的創作意念。 Eone is introducing a new feature on its Bradley watch. Ceramics material has outstanding properties that are known for high durability, scratch resistance and very low weight in comparison to other materials.</p>
+		</div>
 	</div>
 	<div id="subscribe">
 		<p>We promise to only send you good things.</p>
@@ -36,7 +58,6 @@
 			<button >SUBSCRIBE</button>
 		</form>
 	</div>
-
 	<footer id="footer">
 		<div class="foot">
 			<ul>
@@ -74,14 +95,78 @@
 			<div class="share">
 				<h4>SHARE TO YOUR FRIENDS</h4>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li><a href="">微信</a></li>
+					<li><a href="">微博</a></li>
+					<li><a href="">支付宝</a></li>
 				</ul>
 			</div>
-		</div><a href=""></a>
+		</div>
 	</footer>
-	<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="/js/reuse_js.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/reuse_js.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var smallImgWidth = $(".small").width(),
+				smallImgHeight = $(".small").height();
+			console.log(smallImgHeight + " " + smallImgWidth);
+			if(smallImgWidth > smallImgHeight){
+				smallImgWidth = 400;
+				$(".small").width(smallImgWidth);
+			}
+			else{
+				smallImgHeight = 400;
+				$(".small").height(smallImgHeight);
+			};
+			$("#box").mousemove(function(e){
+				var smallImgWidth = $(".small").width(),
+					smallImgHeight = $(".small").height(),
+					bigImgWidth = $(".big").width(),
+					bigImgHeight = $(".big").height();
+				var rageX = bigImgWidth / smallImgWidth,
+					rageY = bigImgHeight / smallImgHeight;
+				var glassWidth = 400 / rageX,
+					glassHeight = 400 / rageY;
+				$(".glass").width(glassWidth);
+				$(".glass").height(glassHeight);
+				e = e || event;
+				var _pageX = e.pageX || e.clientX,
+					_pageY = e.pageY || e.clientY;
+				var _left = $(this).offset().left,
+					_top = $(this).offset().top;
+				var wid = $(".glass").width() / 2,
+					hei = $(".glass").height() / 2;
+				_left = _pageX - _left - wid;
+				_top = _pageY - _top - hei;
+
+				if(_left < 0)
+					_left = 0;
+				else if(_left > smallImgWidth - glassWidth)
+					_left = smallImgWidth - glassWidth;
+				if(_top < 0)
+					_top = 0;
+				else if(_top > smallImgHeight - glassHeight)
+					_top = smallImgHeight - glassHeight;
+				$(".glass").css({"left" : _left , "top" : _top , "display" : "block"});
+				$("#bigBox").css("display","block");
+				var bigLeft = - rageX * _left,
+					bigTop = - rageY * _top;
+				$(".big").css({"left":bigLeft,"top" : bigTop});
+			});
+		
+			$("#box").mouseout(function(){
+				$(".glass").css("display","none");
+				$("#bigBox").css("display","none");
+			});
+
+
+			$(".small_img").on("click","img",function(){
+				var index = $(this).index()
+				$(".small").attr("src","../imgs/big_img/1/big_"+ (index + 1) +".jpg");
+				$(".big").attr("src","../imgs/big_img/1/big_"+ (index + 1) +".jpg")
+			})
+
+
+		})
+	</script>
 </body>
 </html>

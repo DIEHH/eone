@@ -1,10 +1,19 @@
 #all {
   padding-top: 150px;
-  text-align: center; }
+  width: 1020px;
+  margin: 0 auto; }
+
+#all h1 {
+  text-align: center;
+  line-height: 120px; }
+
+#all .introduce {
+  line-height: 20px;
+  color: #666;
+  margin-bottom: 50px; }
 
 #all .products {
-  width: 100%;
-  border-bottom: 1px solid #ccc; }
+  width: 100%; }
 
 #all .products ul {
   width: 1020px;
@@ -12,5 +21,56 @@
   overflow: hidden; }
 
 #all .products ul li {
-  width: 30%;
+  width: 33%;
   float: left; }
+
+#all .products {
+  width: 1020px;
+  overflow: hidden;
+  margin: 0 auto; }
+
+#all .products .body {
+  width: 30%;
+  float: left;
+  text-align: center;
+  margin-right: 32px;
+  margin-bottom: 20px; }
+
+#all .products .body .eone {
+  color: #888; }
+
+#all .products .body .product_name a {
+  color: #000;
+  line-height: 40px; }
+
+#all .products .body .image img {
+  width: 100%; }
+
+#all .products .body:nth-child(4), #all .products .body:nth-child(7), #all .products .body:nth-child(10) {
+  clear: both; }
+
+#all .btn {
+  width: 1020px;
+  overflow: hidden;
+  margin-top: 40px;
+  line-height: 40px;
+  text-align: center; }
+
+#all .btn p {
+  display: inline-block;
+  color: #999; }
+
+#all .btn .pre, .next {
+  width: 120px;
+  height: 40px;
+  background: #729bb4;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer; }
+
+#all .btn .pre {
+  float: left; }
+
+#all .btn .next {
+  float: right;
+  margin-bottom: 120px; }

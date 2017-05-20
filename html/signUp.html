@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Eone Timepieces 丨Bradley Collections for Men & Women「SEE & TOUCH」 | Eone Timepieces</title>
+	<link rel="stylesheet" type="text/css" href="../dist/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/signUp_style.css">
+</head>
+<body>
+	<div id="nav">
+		<div class="bg"></div>
+		<header>
+			<h1><a href="../index.html"><img src="../imgs/logo.png" alt=""></a></h1>
+			<ul>
+				<li><a href="signIn.html">登录</a></li>
+				<li><a href="signUp.html">注册</a></li>
+				<li><a href="javascript:void(0)" class="sou">搜索</a></li>
+				<li><a href="cart.html">购物车</a></li>
+				<li><a href="">导航</a></li>
+			</ul>
+			<div class="search">
+				<form action="">
+					<input type="text" placeholder="Enter search terms">
+				</form>
+			</div>
+		</header>
+		<div class="hide">
+		</div>
+	</div>
+	<div id="signUp">
+		<form action="">
+			<h2>个人信息</h2>
+			<p>请输入您的昵称</p>
+			<i>*</i><input type="text" class="nickname" placeholder="nickname"><b></b>
+			<p>请输入您的用户账号（大写字母或小写字母开头，只能为数字和字母，不少于4个字符）</p>
+			<i>*</i><input type="text" class="username" placeholder="username"><b></b>
+			<p>请输入您的密码（不少于6个字符）</p>
+			<i>*</i><input type="password" class="password1" placeholder="password"><b></b>
+			<p>请再次输入您的密码</p>
+			<i>*</i><input type="password" class="password2" placeholder="confirm password"><b></b>
+			<h2>我们怎么联系您</h2>
+			<p>请输入您的电话号码，为您提供更优质的服务</p>
+			<i>*</i><input type="text" class="phone" placeholder="phone number"><b></b>
+			<p>请输入您的邮箱，能快速的获取最新消息</p>
+			<i>*</i><input type="email" class="email" placeholder="you@email.com"><b></b>
+			<a class="btn" href="javascript:void(0)">sign up</a>
+		</form>
+	</div>
+	
+	<footer id="footer">
+		<div class="foot">
+			<ul>
+				<li>
+					<h4>EONE 觸感腕錶</h4>
+					<p><a href="">主頁 Home</a></p>
+					<p><a href="">全部商品 Catalog</a></p>
+					<p><a href="">精鋼系列 Stainless Steel</a></p>
+					<p><a href="">皮革 Classic Leather</a></p>
+					<p><a href="">帆布 Classic Canvas</a></p>
+					<p><a href="">航海家系列 Voyager</a></p>
+					<p><a href="">指南針系列 Compass</a></p>
+					<p><a href="">禮盒裝及錶帶 Gift Set & Wristband</a></p>
+				</li>
+				<li>
+					<h4>關於 EONE</h4>
+					<p><a href="">我們的故事 Eone Story</a></p>
+					<p><a href="">觸感腕錶 the Bradley</a></p>
+					<p><a href="">手錶設計 Design</a></p>
+					<p><a href="">博客 Eone Blog</a></p>
+					<p><a href="">加入我們 Join Us</a></p>
+					<p><a href="">銷售點 Physical Store</a></p>
+					<p><a href="">付款指南 Payment Guide</a></p>
+					<p><a href="">常見問題 FAQ</a></p>
+				</li>
+				<li>
+					<h4>其他</h4>
+					<p><a href="">Eone Facebook</a></p>
+					<p><a href="">Eone Instagram</a></p>
+					<p><a href="">電郵查詢 Email</a></p>
+					<p><a href="">使用條款</a></p>
+					<p><a href="">私隱政策</a></p>
+				</li>
+			</ul>
+			<div class="share">
+				<h4>SHARE TO YOUR FRIENDS</h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div><a href=""></a>
+	</footer>
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/reuse_js.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var _nickname,_username,_password1,_password2,_phone,_email;
+			var nick = false,
+				user = false,
+				password = false,
+				phone =false,
+				email = false;
+
+			$(".btn").mouseenter(function(){$(this).css({"background":"#507992","opacity":"1"})}).mouseleave(function(){$(this).css({"background":"#729bb4","opacity":"0.8"})});
+
+			$(".nickname").blur(function(){
+				_nickname = $(this).val();
+				var reg = /^[\u4e00-\u9fa5a-zA-Z0-9_]+$/;
+				var arr = reg.exec(_nickname);
+				if(arr === null)
+					$(".nickname").next().text("昵称不能为空").css("color","red");
+				else{
+					$.ajax({
+						url : "../signUp_ver_nickname.php",
+						dataType : "json",
+						type : "post",
+						async : false,
+						data: {
+							nickname : _nickname
+						},
+						success : function(data){
+							if(data.length === 0){
+								$(".nickname").next().text("昵称可用").css("color","#94bdd6");
+								nick = true;
+							}
+							else{
+								$(".nickname").next().text("昵称已被注册").css("color","red");
+								nick = false;
+							}
+						}
+					});
+				};
+			});
+			$(".username").blur(function(){
+				_username = $(this).val();
+				var len = Array.from(_username).length;
+				if(len < 4){
+					$(".username").next().text("账号长度不足").css("color","red");
+					return;
+				}
+				var reg = /^[a-zA-Z][a-zA-Z0-9]{2,}$/;
+				var arr = reg.exec(_username);
+				if(arr === null){
+					$(".username").next().text("账号不能为空").css("color","red");
+				}
+				else{
+					$.ajax({
+						url : "../signUp_ver_nickname.php",
+						dataType : "json",
+						type : "post",
+						async : false,
+						data: {
+							username : _username
+						},
+						success : function(data){
+							if(data.length === 0){
+								$(".username").next().text("账号可用").css("color","#94bdd6");
+								user = true;
+							}
+							else{
+								$(".username").next().text("账号已被注册").css("color","red");
+								user = false;
+							}
+						}
+					});
+				}
+			});
+			$(".password1").blur(function(){
+				_password1 = $(this).val();
+				var len = Array.from(_password1).length;
+				if(len < 6){
+					$(".password1").next().text("密码长度不足").css("color","red");
+					return;
+				}
+				var reg = /^[a-zA-Z0-9_]{3,}$/;
+				var arr = reg.exec(_password1);
+				if(arr === null){
+					$(".password1").next().text("密码不能为空").css("color","red");
+				}
+				else
+					$(".password1").next().text("  ");
+			});
+			$(".password2").blur(function(){
+				_password2 = $(this).val();
+				if(_password1 !== _password2){
+					$(".password2").next().text("两次输入的密码不一致").css("color","red");
+					password = false;
+				}
+				else{
+					$(".password2").next().text("密码一致").css("color","#729bb4");
+					password = true;
+				}
+			});
+			$(".phone").blur(function(){
+				_phone = $(this).val();
+				var len = Array.from(_phone).length;
+				if(len < 11){
+					$(".phone").next().text("电话格式不正确").css("color","red");
+					return;
+				}
+				var reg = /^[1]\d{10}$/;
+				var arr = reg.exec(_phone);
+				if(arr === null){
+					$(".phone").next().text("电话格式不正确").css("color","red");
+				}
+				else{
+					$.ajax({
+						url : "../signUp_ver_nickname.php",
+						dataType : "json",
+						type : "post",
+						async : false,
+						data: {
+							phone : _phone
+						},
+						success : function(data){
+							if(data.length === 0){
+								$(".phone").next().text("电话可用").css("color","#94bdd6");
+								phone = true;
+							}
+							else{
+								$(".phone").next().text("电话已被注册").css("color","red");
+								phone = false;
+							}
+						}
+					});
+				}
+			});
+			$(".email").blur(function(){
+				_email = $(this).val();
+				var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
+				var arr = reg.exec(_email);
+				if(arr === null){
+					$(".email").next().text("邮箱格式不正确").css("color","red");
+				}else{
+					$.ajax({
+						url : "../signUp_ver_nickname.php",
+						dataType : "json",
+						type : "post",
+						async : false,
+						data: {
+							email : _email
+						},
+						success : function(data){
+							if(data.length === 0){
+								$(".email").next().text("邮箱可用").css("color","#94bdd6");
+								email = true;
+							}
+							else{
+								$(".email").next().text("邮箱已被注册").css("color","red");
+								email = false;
+							}
+						}
+					});
+				}
+			});
+			$(".btn").click(function(){
+				var inp = $("#signUp input")
+				var arr = [];
+				for(var i = 0; i < inp.length ; i++){
+					if($(inp[i]).val())
+						arr.push(true);
+					else
+						arr.push(false);
+				};
+				if(arr.indexOf(false) === -1){
+					if(nick && user && password && phone && email){
+						$.ajax({
+							url : "../addUsers.php",
+							type : "post",
+							data : {
+								nickname : _nickname,
+								username : _username,
+								password : _password2,
+								phone : _phone,
+								email : _email
+							}
+						});
+						location = "../html/signIn.html";
+					}
+				}else{
+					alert("有信息没填写")
+				}
+			});
+		})
+	</script>
+</body>
+</html>
